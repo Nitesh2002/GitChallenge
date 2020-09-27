@@ -20,11 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func setRootViewController(){
-        let homeVC = InfoViewController()
-        homeVC.view.backgroundColor = .red
-        let navC = UINavigationController(rootViewController: homeVC)
-        self.window?.rootViewController = navC
+        let firstVC = InfoViewController()
+        firstVC.view.backgroundColor = .clear
+        let rootVC = UINavigationController(rootViewController: firstVC)
+        self.window?.rootViewController = rootVC
     }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.window?.makeKeyAndVisible()
         return true

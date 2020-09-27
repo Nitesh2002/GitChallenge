@@ -21,8 +21,8 @@ struct Row: Codable {
     var imageHref: String?
     
     enum CodingKeys: String, CodingKey {
-        case imageHref = "imageHref"
         case title = "title"
         case description = "description"
+        case imageHref = "imageHref"
     }
 }

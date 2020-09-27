@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SDWebImage
 
 struct InfoModel {
     let title: String
@@ -61,8 +62,10 @@ class InfoListControllerVM: InfoListVMRepresentable {
             
             guard let self = self else { return }
             self.infoModel = self.getInfoModels(info: info)
+            
             //PullToRefresh can be tested by uncommenting this line
-            //             self.infoModel = IsPullToRefresh ? self.getInfoModels(info: Information(title: "", rows: [])) : self.getInfoModels(info:info)
+            // self.infoModel = IsPullToRefresh ? self.getInfoModels(info: Information(title: "", rows: [])) : self.getInfoModels(info:info)
+            
             self.reloadTable()
             self.showLoader(false, nil)
         })
@@ -70,10 +73,10 @@ class InfoListControllerVM: InfoListVMRepresentable {
     
     private func getInfoModels(info: Information) -> InfoModel {
         let cellVMs : [InfoTableCellVMRepresentable] = info.rows?.map({
-            return InfoTableCellVM(info: $0)
+             InfoTableCellVM(info: $0)
         }) ?? []
-        let tempSectionModels  = InfoModel(title: info.title ?? "", cellViewModels: cellVMs, rows: info.rows ?? [])
-        return tempSectionModels
+        let tempInfoModels  = InfoModel(title: info.title ?? "", cellViewModels: cellVMs, rows: info.rows ?? [])
+        return tempInfoModels
     }
     
     func getCellViewModel(for indexPath: IndexPath) -> InfoTableCellVMRepresentable? {

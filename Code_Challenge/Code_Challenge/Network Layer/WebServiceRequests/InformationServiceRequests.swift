@@ -27,10 +27,10 @@ struct InfoServiceRequests: InfoServiceRequestType {
                 guard let string = String(data: responseData, encoding: String.Encoding.isoLatin1) else {
                     completion(nil, nil)
                     return }
-                guard let properData = string.data(using: .utf8, allowLossyConversion: true) else {
+                guard let validData = string.data(using: .utf8, allowLossyConversion: true) else {
                     completion(nil, nil)
                     return }
-                JSONResponseDecoder.decodeFrom(properData, returningModelType: Information.self, completion: { (info, error) in
+                JSONResponseDecoder.decodeFrom(validData, returningModelType: Information.self, completion: { (info, error) in
                     completion(info, error)
                 })
                 

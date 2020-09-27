@@ -171,10 +171,10 @@
 		6D53ACD4252062D400D2A8AD /* Code_ChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
-				6DA2B2162520AD84001CB452 /* MockWebserviceRequests */,
-				6DA2B2132520AC65001CB452 /* ViewModelTests */,
 				6D53ACD5252062D400D2A8AD /* Code_ChallengeTests.swift */,
 				6D53ACD7252062D400D2A8AD /* Info.plist */,
+				6DA2B2162520AD84001CB452 /* MockWebserviceRequests */,
+				6DA2B2132520AC65001CB452 /* ViewModelTests */,
 			);
 			path = Code_ChallengeTests;
 			sourceTree = "<group>";

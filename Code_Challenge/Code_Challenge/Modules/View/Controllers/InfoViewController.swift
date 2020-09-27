@@ -95,6 +95,11 @@ class InfoViewController: UIViewController {
                 }
             }
         }
+        viewModel.showAlert = { [weak self] message in
+            DispatchQueue.main.async {
+                self?.showBasicAlert(message: message)
+            }
+        }
     }
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
@@ -118,5 +123,17 @@ extension InfoViewController: UITableViewDataSource, UITableViewDelegate {
             cell?.renderCell(with: cellViewModel)
         }
         return cell ?? UITableViewCell()
+    }
+}
+
+extension UIViewController {
+    func showBasicAlert(message: String, completion: (() -> Void)? = nil) {
+        let alertViewController = UIAlertController(title: "Info", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { alertAction in
+            completion?()
+        }
+        alertViewController.addAction(okAction)
+        alertViewController.message = message
+        present(alertViewController, animated: true, completion: nil)
     }
 }

@@ -17,6 +17,7 @@ struct InfoWebserviceReequestsStub: InfoServiceRequestType {
 }
 
 struct MockDataSet {
+    
     private (set) var info : Information?
     
     init() {

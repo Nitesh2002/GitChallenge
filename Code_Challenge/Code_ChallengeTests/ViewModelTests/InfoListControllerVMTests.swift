@@ -32,9 +32,7 @@ class InfoListControllerVMTests: XCTestCase {
         XCTAssertLessThan(sut.getRowCount(), 100)
     }
 
-   
     func testTitle() {
         XCTAssertEqual(sut.getTitle(), "")
     }
-
 }
