@@ -1,5 +1,5 @@
 //
-//  ContactAPIs.swift
+//  InformationAPIs.swift
 //  Code_Challenge
 //
 //  Created by Nitesh on 27/09/20.

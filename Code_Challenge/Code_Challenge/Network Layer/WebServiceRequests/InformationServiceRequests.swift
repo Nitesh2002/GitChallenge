@@ -1,5 +1,5 @@
 //
-//  ContactServiceRequests.swift
+//  InfoServiceRequests.swift
 //  Code_Challenge
 //
 //  Created by Nitesh on 27/09/20.
@@ -16,8 +16,8 @@ protocol InfoServiceRequestType {
 
 struct InfoServiceRequests: InfoServiceRequestType {
     @discardableResult func getAllInformations(completion: @escaping GetAllInfoResponse) -> URLSessionDataTask? {
-        let contactRequestModel = APIRequestModel(api: InfoRequests.getAllInformations)
-        return WebserviceHelper.requestAPI(apiModel: contactRequestModel) { response in
+        let infoRequestModel = APIRequestModel(api: InfoRequests.getAllInformations)
+        return WebserviceHelper.requestAPI(apiModel: infoRequestModel) { response in
             switch response {
             case .success(let serverData):
                 guard let responseData = serverData else {
@@ -30,8 +30,8 @@ struct InfoServiceRequests: InfoServiceRequestType {
                 guard let properData = string.data(using: .utf8, allowLossyConversion: true) else {
                     completion(nil, nil)
                     return }
-                JSONResponseDecoder.decodeFrom(properData, returningModelType: Information.self, completion: { (contactList, error) in
-                    completion(contactList, error)
+                JSONResponseDecoder.decodeFrom(properData, returningModelType: Information.self, completion: { (info, error) in
+                    completion(info, error)
                 })
                 
             case .error(let error, _):

@@ -10,6 +10,7 @@ import UIKit
 
 class InfoTableViewCell: UITableViewCell {
     
+    // MARK: ViewLifeCycle Methods
     lazy private var infoImageView: CustomImageView = {
         let imageView = CustomImageView()
         imageView.image = UIImage(named: "placeholder_photo")
@@ -40,6 +41,8 @@ class InfoTableViewCell: UITableViewCell {
     
     private var viewModel: InfoTableCellVMRepresentable!
     
+    // MARK: Initializers and Default Methods
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
@@ -51,6 +54,8 @@ class InfoTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    
+    // MARK: UI Rendering Methods
     
     func renderCell(with viewModel: InfoTableCellVMRepresentable) {
         setupUI()
@@ -68,9 +73,8 @@ class InfoTableViewCell: UITableViewCell {
         setupDescriptionLabel(marginGuide: marginGuide)
     }
     
-    private func setupImageView(marginGuide:UILayoutGuide){
+    private func setupImageView(marginGuide:UILayoutGuide) {
         contentView.addSubview(infoImageView)
-        
         NSLayoutConstraint.activate([
             infoImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
             infoImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
@@ -80,16 +84,15 @@ class InfoTableViewCell: UITableViewCell {
         
     }
     
-    private func setupNameLabel(marginGuide:UILayoutGuide){
+    private func setupNameLabel(marginGuide:UILayoutGuide) {
         contentView.addSubview(nameLabel)
         NSLayoutConstraint.activate([
             nameLabel.leftAnchor.constraint(equalTo: infoImageView.leftAnchor, constant: 60),
             nameLabel.topAnchor.constraint(equalTo: infoImageView.topAnchor)
-            
         ])
     }
     
-    private func setupDescriptionLabel(marginGuide:UILayoutGuide){
+    private func setupDescriptionLabel(marginGuide:UILayoutGuide) {
         contentView.addSubview(descriptionLabel)
         NSLayoutConstraint.activate([
             descriptionLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
@@ -104,5 +107,4 @@ class InfoTableViewCell: UITableViewCell {
         infoImageView.loadImageUsingUrlString(urlString: viewModel.cellSetupModel.imageURL)
         descriptionLabel.text = viewModel.cellSetupModel.description.count == 0 ? "No Description" : viewModel.cellSetupModel.description
     }
-    
 }

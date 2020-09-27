@@ -8,8 +8,8 @@
 
 import UIKit
 
-class HomeViewController: UIViewController{
-    
+class HomeViewController: UIViewController {
+    // Progammer defined variables
     private let cellResuseIdentifier = "cell"
     private var viewModel: InfoListControllerVM!
     private var loaderView = LoaderView()
@@ -27,13 +27,13 @@ class HomeViewController: UIViewController{
         return tableView
     }()
     
+    // MARK: ViewLifeCycle Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         view.addSubview(tableView)
-        setupViewModel()
-        setupUI()
-        setupBinding()
+        bind()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -41,14 +41,28 @@ class HomeViewController: UIViewController{
         viewModel.viewWillAppear()
     }
     
+    // MARK: Controller and ViewModel binding
+    
+    private func bind() {
+        setupViewModel()
+        setupUI()
+        setupBinding()
+    }
+    
     private func setupViewModel() {
         viewModel = InfoListControllerVM(infoServiceRequest: InfoServiceRequests())
     }
     
     private func setupUI() {
-        setupAutoLayout()
+        setupTableViewUI()
     }
     
+    private func setupTableViewUI() {
+        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    }
     
     private func setupBinding() {
         viewModel.reloadTable = { [weak self] in
@@ -70,12 +84,6 @@ class HomeViewController: UIViewController{
             }
         }
     }
-    private func setupAutoLayout() {
-        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-    }
 }
 
 
@@ -88,7 +96,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: self.cellResuseIdentifier, for: indexPath) as? InfoTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellResuseIdentifier, for: indexPath) as? InfoTableViewCell
         if let cellViewModel = viewModel.getCellViewModel(for: indexPath) {
             cell?.renderCell(with: cellViewModel)
         }

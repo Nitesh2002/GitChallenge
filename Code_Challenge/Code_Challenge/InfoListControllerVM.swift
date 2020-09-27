@@ -56,13 +56,13 @@ class InfoListControllerVM: InfoListVMRepresentable {
             }
             
             guard let self = self else { return }
-            self.infoModel = self.getsectionModels(info:info)
+            self.infoModel = self.getInfoModels(info:info)
             self.reloadTable()
             self.showLoader(false, nil)
         })
     }
     
-    private func getsectionModels(info: Information) -> InfoModel {
+    private func getInfoModels(info: Information) -> InfoModel {
         let cellVMs : [InfoTableCellVMRepresentable] = info.rows?.map({
             return InfoTableCellVM(info: $0)
         }) ?? []

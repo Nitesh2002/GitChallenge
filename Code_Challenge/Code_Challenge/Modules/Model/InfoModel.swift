@@ -1,5 +1,5 @@
 //
-//  ContactModel.swift
+//  InfoModel.swift
 //  Code_Challenge
 //
 //  Created by Nitesh on 27/09/20.
