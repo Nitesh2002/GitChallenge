@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class InfoTableViewCell: UITableViewCell {
     
@@ -104,7 +105,7 @@ class InfoTableViewCell: UITableViewCell {
     
     private func renderData() {
         nameLabel.text = viewModel.cellSetupModel.title.count == 0 ? "No Title" : viewModel.cellSetupModel.title
-        infoImageView.loadImageUsingUrlString(urlString: viewModel.cellSetupModel.imageURL)
+        infoImageView.sd_setImage(with: URL(string: viewModel.cellSetupModel.imageURL), placeholderImage: UIImage(named: "placeholder_photo"))
         descriptionLabel.text = viewModel.cellSetupModel.description.count == 0 ? "No Description" : viewModel.cellSetupModel.description
     }
 }

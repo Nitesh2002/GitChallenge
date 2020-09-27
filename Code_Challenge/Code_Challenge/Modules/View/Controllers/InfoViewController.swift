@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  InfoViewController.swift
 //  Code_Challenge
 //
 //  Created by Nitesh on 27/09/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class InfoViewController: UIViewController {
     // Progammer defined variables
     private let cellResuseIdentifier = "cell"
     private var viewModel: InfoListControllerVM!
@@ -17,7 +17,7 @@ class HomeViewController: UIViewController {
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = .lightGray
+        tableView.backgroundColor = .white
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellResuseIdentifier)
@@ -25,6 +25,16 @@ class HomeViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(InfoTableViewCell.self, forCellReuseIdentifier: cellResuseIdentifier)
         return tableView
+    }()
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+                     #selector(handleRefresh(_:)),
+                                 for: UIControl.Event.valueChanged)
+        refreshControl.tintColor = UIColor.red
+        
+        return refreshControl
     }()
     
     // MARK: ViewLifeCycle Methods
@@ -62,7 +72,9 @@ class HomeViewController: UIViewController {
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        tableView.addSubview(self.refreshControl)
     }
+    
     
     private func setupBinding() {
         viewModel.reloadTable = { [weak self] in
@@ -84,12 +96,17 @@ class HomeViewController: UIViewController {
             }
         }
     }
+    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        viewModel.pullToRefresh()
+        refreshControl.endRefreshing()
+    }
 }
 
 
 // MARK: UITableViewDataSource & UITableViewDelegate
 
-extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
+extension InfoViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.getRowCount()

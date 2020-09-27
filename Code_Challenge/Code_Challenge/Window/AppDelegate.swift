@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func setRootViewController(){
-        let homeVC = HomeViewController()
+        let homeVC = InfoViewController()
         homeVC.view.backgroundColor = .red
         let navC = UINavigationController(rootViewController: homeVC)
         self.window?.rootViewController = navC

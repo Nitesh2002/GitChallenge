@@ -44,11 +44,15 @@ class InfoListControllerVM: InfoListVMRepresentable {
     }
     
     func viewWillAppear() {
-        getInfo()
+        getInfo(IsPullToRefresh: false)
     }
     
-    private func getInfo() {
-        showLoader(true, "Fetching Info...")
+    func pullToRefresh()  {
+        getInfo(IsPullToRefresh: true)
+    }
+    
+    private func getInfo(IsPullToRefresh:Bool) {
+        showLoader(!IsPullToRefresh, "Fetching Info...")
         infoServiceRequest.getAllInformations(completion: { [weak self] (information, error) in
             guard let info = information, error == nil else {
                 self?.showAlert(error?.localizedDescription ?? "Unknown error")
@@ -56,7 +60,9 @@ class InfoListControllerVM: InfoListVMRepresentable {
             }
             
             guard let self = self else { return }
-            self.infoModel = self.getInfoModels(info:info)
+            self.infoModel = self.getInfoModels(info: info)
+            //PullToRefresh can be tested by uncommenting this line
+            //             self.infoModel = IsPullToRefresh ? self.getInfoModels(info: Information(title: "", rows: [])) : self.getInfoModels(info:info)
             self.reloadTable()
             self.showLoader(false, nil)
         })
