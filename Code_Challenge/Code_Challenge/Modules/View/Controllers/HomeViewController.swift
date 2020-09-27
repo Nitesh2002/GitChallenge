@@ -10,7 +10,9 @@ import UIKit
 
 class HomeViewController: UIViewController{
     
-    fileprivate let cellResuseIdentifier = "cell"
+    private let cellResuseIdentifier = "cell"
+    private var viewModel: InfoListControllerVM!
+    private var loaderView = LoaderView()
     
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
@@ -27,12 +29,47 @@ class HomeViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "TableView Demo"
         view.backgroundColor = .white
         view.addSubview(tableView)
+        setupViewModel()
+        setupUI()
+        setupBinding()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        viewModel.viewWillAppear()
+    }
+    
+    private func setupViewModel() {
+        viewModel = InfoListControllerVM(infoServiceRequest: InfoServiceRequests())
+    }
+    
+    private func setupUI() {
         setupAutoLayout()
     }
     
+    
+    private func setupBinding() {
+        viewModel.reloadTable = { [weak self] in
+            DispatchQueue.main.async {
+                self?.title = self?.viewModel.getTitle()
+                self?.tableView.reloadData()
+            }
+        }
+        
+        viewModel.showLoader = { [weak self] (shouldShowLoader, message) in
+            DispatchQueue.main.async {
+                guard let self = self else { return }
+                self.loaderView.loaderDescription = message ?? ""
+                if shouldShowLoader {
+                    self.loaderView.showLoaderOn(view: self.view)
+                } else {
+                    self.loaderView.hideLoader()
+                }
+            }
+        }
+    }
     private func setupAutoLayout() {
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
@@ -47,12 +84,14 @@ class HomeViewController: UIViewController{
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return viewModel.getRowCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: self.cellResuseIdentifier, for: indexPath) as! InfoTableViewCell
-        cell.nameLabel.text = "Test Name"
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.cellResuseIdentifier, for: indexPath) as? InfoTableViewCell
+        if let cellViewModel = viewModel.getCellViewModel(for: indexPath) {
+            cell?.renderCell(with: cellViewModel)
+        }
+        return cell ?? UITableViewCell()
     }
 }

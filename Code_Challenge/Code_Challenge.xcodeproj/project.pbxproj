@@ -14,6 +14,18 @@
 		6D53ACE1252062D400D2A8AD /* Code_ChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53ACE0252062D400D2A8AD /* Code_ChallengeUITests.swift */; };
 		6D53ACEF2520651200D2A8AD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53ACEE2520651200D2A8AD /* HomeViewController.swift */; };
 		6DA2B1E125206BA6001CB452 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA2B1E025206BA6001CB452 /* InfoTableViewCell.swift */; };
+		6DA2B1FC252073EB001CB452 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA2B1FB252073EB001CB452 /* LoaderView.swift */; };
+		6DA2B1FE252073F1001CB452 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA2B1FD252073F1001CB452 /* CustomImageView.swift */; };
+		6DA2B2002520740F001CB452 /* InformationAPIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA2B1FF2520740F001CB452 /* InformationAPIs.swift */; };
+		6DA2B20225207416001CB452 /* InformationServiceRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA2B20125207416001CB452 /* InformationServiceRequests.swift */; };
+		6DA2B20725207426001CB452 /* Error+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA2B20325207426001CB452 /* Error+Extension.swift */; };
+		6DA2B20825207426001CB452 /* WebserviceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA2B20425207426001CB452 /* WebserviceHelper.swift */; };
+		6DA2B20925207426001CB452 /* WebserviceConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA2B20525207426001CB452 /* WebserviceConfig.swift */; };
+		6DA2B20A25207426001CB452 /* WebserviceConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA2B20625207426001CB452 /* WebserviceConstants.swift */; };
+		6DA2B20C25207436001CB452 /* JSONResponseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA2B20B25207436001CB452 /* JSONResponseDecoder.swift */; };
+		6DA2B20E25207600001CB452 /* InfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA2B20D25207600001CB452 /* InfoModel.swift */; };
+		6DA2B211252078CA001CB452 /* InfoTableCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA2B20F252078CA001CB452 /* InfoTableCellVM.swift */; };
+		6DA2B212252078CA001CB452 /* InfoListControllerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA2B210252078CA001CB452 /* InfoListControllerVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +59,18 @@
 		6D53ACE2252062D400D2A8AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D53ACEE2520651200D2A8AD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6DA2B1E025206BA6001CB452 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
+		6DA2B1FB252073EB001CB452 /* LoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
+		6DA2B1FD252073F1001CB452 /* CustomImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
+		6DA2B1FF2520740F001CB452 /* InformationAPIs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationAPIs.swift; sourceTree = "<group>"; };
+		6DA2B20125207416001CB452 /* InformationServiceRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationServiceRequests.swift; sourceTree = "<group>"; };
+		6DA2B20325207426001CB452 /* Error+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Error+Extension.swift"; sourceTree = "<group>"; };
+		6DA2B20425207426001CB452 /* WebserviceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebserviceHelper.swift; sourceTree = "<group>"; };
+		6DA2B20525207426001CB452 /* WebserviceConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebserviceConfig.swift; sourceTree = "<group>"; };
+		6DA2B20625207426001CB452 /* WebserviceConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebserviceConstants.swift; sourceTree = "<group>"; };
+		6DA2B20B25207436001CB452 /* JSONResponseDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONResponseDecoder.swift; sourceTree = "<group>"; };
+		6DA2B20D25207600001CB452 /* InfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoModel.swift; sourceTree = "<group>"; };
+		6DA2B20F252078CA001CB452 /* InfoTableCellVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTableCellVM.swift; sourceTree = "<group>"; };
+		6DA2B210252078CA001CB452 /* InfoListControllerVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoListControllerVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +121,8 @@
 		6D53ACBD252062D300D2A8AD /* Code_Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				6DA2B1FA252073CB001CB452 /* Reusable Views */,
+				6DA2B1EF2520733F001CB452 /* Network Layer */,
 				6D53ACF4252066D400D2A8AD /* Modules */,
 				6D53ACF5252066F800D2A8AD /* Window */,
 				6D53ACC7252062D400D2A8AD /* Assets.xcassets */,
@@ -136,6 +162,7 @@
 		6D53ACF1252066A600D2A8AD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6DA2B20D25207600001CB452 /* InfoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -143,6 +170,8 @@
 		6D53ACF3252066C700D2A8AD /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				6DA2B210252078CA001CB452 /* InfoListControllerVM.swift */,
+				6DA2B20F252078CA001CB452 /* InfoTableCellVM.swift */,
 			);
 			name = ViewModel;
 			path = ..;
@@ -180,6 +209,53 @@
 				6D53ACEE2520651200D2A8AD /* HomeViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		6DA2B1EF2520733F001CB452 /* Network Layer */ = {
+			isa = PBXGroup;
+			children = (
+				6DA2B1F92520739C001CB452 /* JSONResponseDecoder */,
+				6DA2B1F82520738B001CB452 /* WebServiceEngine */,
+				6DA2B1F62520736F001CB452 /* WebServiceRequests */,
+			);
+			path = "Network Layer";
+			sourceTree = "<group>";
+		};
+		6DA2B1F62520736F001CB452 /* WebServiceRequests */ = {
+			isa = PBXGroup;
+			children = (
+				6DA2B1FF2520740F001CB452 /* InformationAPIs.swift */,
+				6DA2B20125207416001CB452 /* InformationServiceRequests.swift */,
+			);
+			path = WebServiceRequests;
+			sourceTree = "<group>";
+		};
+		6DA2B1F82520738B001CB452 /* WebServiceEngine */ = {
+			isa = PBXGroup;
+			children = (
+				6DA2B20325207426001CB452 /* Error+Extension.swift */,
+				6DA2B20525207426001CB452 /* WebserviceConfig.swift */,
+				6DA2B20625207426001CB452 /* WebserviceConstants.swift */,
+				6DA2B20425207426001CB452 /* WebserviceHelper.swift */,
+			);
+			path = WebServiceEngine;
+			sourceTree = "<group>";
+		};
+		6DA2B1F92520739C001CB452 /* JSONResponseDecoder */ = {
+			isa = PBXGroup;
+			children = (
+				6DA2B20B25207436001CB452 /* JSONResponseDecoder.swift */,
+			);
+			path = JSONResponseDecoder;
+			sourceTree = "<group>";
+		};
+		6DA2B1FA252073CB001CB452 /* Reusable Views */ = {
+			isa = PBXGroup;
+			children = (
+				6DA2B1FB252073EB001CB452 /* LoaderView.swift */,
+				6DA2B1FD252073F1001CB452 /* CustomImageView.swift */,
+			);
+			path = "Reusable Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,8 +389,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				6DA2B1E125206BA6001CB452 /* InfoTableViewCell.swift in Sources */,
+				6DA2B20A25207426001CB452 /* WebserviceConstants.swift in Sources */,
+				6DA2B2002520740F001CB452 /* InformationAPIs.swift in Sources */,
+				6DA2B20725207426001CB452 /* Error+Extension.swift in Sources */,
+				6DA2B212252078CA001CB452 /* InfoListControllerVM.swift in Sources */,
 				6D53ACBF252062D300D2A8AD /* AppDelegate.swift in Sources */,
+				6DA2B20E25207600001CB452 /* InfoModel.swift in Sources */,
+				6DA2B1FC252073EB001CB452 /* LoaderView.swift in Sources */,
+				6DA2B20825207426001CB452 /* WebserviceHelper.swift in Sources */,
+				6DA2B20925207426001CB452 /* WebserviceConfig.swift in Sources */,
 				6D53ACEF2520651200D2A8AD /* HomeViewController.swift in Sources */,
+				6DA2B20225207416001CB452 /* InformationServiceRequests.swift in Sources */,
+				6DA2B1FE252073F1001CB452 /* CustomImageView.swift in Sources */,
+				6DA2B211252078CA001CB452 /* InfoTableCellVM.swift in Sources */,
+				6DA2B20C25207436001CB452 /* JSONResponseDecoder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
