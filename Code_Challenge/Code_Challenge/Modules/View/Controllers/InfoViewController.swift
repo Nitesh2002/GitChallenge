@@ -75,12 +75,14 @@ class InfoViewController: UIViewController {
         tableView.addSubview(self.refreshControl)
     }
     
-    
     private func setupBinding() {
         viewModel.reloadTable = { [weak self] in
             DispatchQueue.main.async {
                 self?.title = self?.viewModel.getTitle()
                 self?.tableView.reloadData()
+                if (self?.refreshControl.isRefreshing)!{
+                    self?.refreshControl.endRefreshing()
+                }
             }
         }
         
@@ -104,7 +106,6 @@ class InfoViewController: UIViewController {
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         viewModel.pullToRefresh()
-        refreshControl.endRefreshing()
     }
 }
 
